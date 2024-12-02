@@ -1,4 +1,5 @@
 use tracing::{debug, error, info};
+use itertools::Itertools;
 
 fn main() {
     tracing_subscriber::fmt()
