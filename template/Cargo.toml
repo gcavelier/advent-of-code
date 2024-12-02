@@ -5,3 +5,5 @@ edition = "2021"
 
 [dependencies]
 itertools = { version = "0" }
+tracing = { version = "0" }
+tracing-subscriber  = { version = "0" }
