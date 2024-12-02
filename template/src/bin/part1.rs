@@ -2,13 +2,7 @@ use itertools::Itertools;
 use tracing::{debug, error, info};
 
 fn main() {
-    tracing_subscriber::fmt()
-        .event_format(
-            tracing_subscriber::fmt::format()
-                .with_target(false)
-                .compact(),
-        )
-        .init();
+    tracing_subscriber::fmt::init();
 
     // let input = include_str!("./input1.txt");
     // let output = part1(input);
@@ -26,13 +20,7 @@ mod tests {
 
     #[test]
     fn part1_works() {
-        tracing_subscriber::fmt()
-            .event_format(
-                tracing_subscriber::fmt::format()
-                    .with_target(false)
-                    .compact(),
-            )
-            .init();
+        tracing_subscriber::fmt::init();
         let result = part1(xx);
         assert_eq!(result, xx);
     }
