@@ -9,24 +9,21 @@ fn main() {
 fn part1(input: &str) -> usize {
     let mut left_vec = Vec::new();
     let mut right_vec = Vec::new();
-    let mut result: usize = 0;
 
-    for line in input.split("\n") {
+    for line in input.lines() {
         for (left, right) in line.split_ascii_whitespace().tuple_windows() {
-            left_vec.push(left);
-            right_vec.push(right);
+            left_vec.push(left.parse::<usize>().unwrap());
+            right_vec.push(right.parse::<usize>().unwrap());
         }
     }
     left_vec.sort();
     right_vec.sort();
 
-    for (left, right) in left_vec.iter().zip(right_vec) {
-        let num_left: usize = left.parse().unwrap();
-        let num_right: usize = right.parse().unwrap();
-        let diff = num_left.abs_diff(num_right);
-        result += diff;
-    }
-    result
+    left_vec
+        .iter()
+        .zip(right_vec)
+        .map(|(a, b)| a.abs_diff(b))
+        .sum()
 }
 
 #[cfg(test)]
