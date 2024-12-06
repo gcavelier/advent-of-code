@@ -4,7 +4,7 @@ use tracing::{debug, error, info};
 fn main() {
     tracing_subscriber::fmt::init();
 
-    // let input = include_str!("./input2.txt");
+    // let input = include_str!("./input.txt");
     // let output = part2(input);
     // info!(output);
 }
