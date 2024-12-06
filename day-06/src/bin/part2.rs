@@ -141,8 +141,11 @@ fn part2(input: &str) -> usize {
                 //info!("{},{}", new_guard.x, new_guard.y);
                 if obstacle_in_front(&grid, &new_guard) {
                     new_guard.turn_right()
+                } else {
+                    // Thanks to Hauleth!
+                    // https://www.reddit.com/r/adventofcode/comments/1h7uff2/comment/m0pab8v/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button&rdt=56895
+                    new_guard.move_forward();
                 }
-                new_guard.move_forward();
                 if nb_positions != new_guard.positions.len() {
                     nb_positions = new_guard.positions.len()
                 } else {
