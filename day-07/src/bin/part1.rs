@@ -24,13 +24,6 @@ fn main() {
 
 #[instrument]
 fn is_valid(equation: &Equation) -> bool {
-    let min_possible_value = equation.numbers.iter().fold(0, |acc, x| acc + x);
-    let max_possible_value = equation.numbers.iter().fold(1, |acc, x| acc * x);
-    if max_possible_value < equation.value || min_possible_value > equation.value {
-        //info!("min_possible_value: {min_possible_value} max_possible_value: {max_possible_value} equation.value: {}", equation.value);
-        return false;
-    }
-
     // We have to test all possible cases :(
     let max_nb_loop = 2_usize.pow((equation.numbers.len() - 1) as u32);
     //info!("max_nb_loop={max_nb_loop}");
@@ -60,7 +53,7 @@ fn is_valid(equation: &Equation) -> bool {
             }
         }
         if res == equation.value {
-            info!("OK!!! {operators:?}");
+            //info!("OK!!! {operators:?}");
             return true;
         }
     }
@@ -89,13 +82,10 @@ fn part1(input: &str) -> usize {
         .iter()
         .filter(|equation| is_valid(equation))
         .map(|equation| equation.value)
-        .inspect(|item| {
-            info!("{item}");
-        })
+        // .inspect(|item| {
+        //     info!("{item}");
+        // })
         .sum()
-
-    // 918606645409 => too low
-    // 1298102781216 => too low
 }
 
 #[cfg(test)]
