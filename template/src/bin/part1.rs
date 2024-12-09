@@ -1,6 +1,7 @@
 use itertools::Itertools;
-use tracing::{debug, error, info};
+use tracing::{debug, error, info, instrument};
 
+#[instrument(skip_all)]
 fn main() {
     tracing_subscriber::fmt::init();
 
@@ -9,6 +10,7 @@ fn main() {
     // info!(output);
 }
 
+#[instrument(skip_all)]
 fn part1(input: &str) -> usize {
     0
 }
