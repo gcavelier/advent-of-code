@@ -1,0 +1,10 @@
+[package]
+name = "day-01"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+itertools = { version = "0" }
+pathfinding = { version = "4" }
+tracing = { version = "0" }
+tracing-subscriber  = { version = "0" }
